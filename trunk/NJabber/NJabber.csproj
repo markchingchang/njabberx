@@ -34,7 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="agsXMPP, Version=1.1.0.0, Culture=neutral, PublicKeyToken=ff839b81f1debe86, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -132,6 +131,12 @@
   <ItemGroup>
     <Content Include="libs\agsXMPP.dll" />
     <Resource Include="libs\agsXMPP.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xmpplib\xmpplib.csproj">
+      <Project>{46F76AAB-F720-441D-93D5-738DE2E6EB57}</Project>
+      <Name>xmpplib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

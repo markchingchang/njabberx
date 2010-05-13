@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using agsXMPP;
 using agsXMPP.net;
 using agsXMPP.protocol.Base;
+using agsXMPP.protocol.client;
 using NJabber.view;
 using RosterItem = NJabber.model.roster.RosterItem;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace NJabber
         private readonly XmppClientConnection xmppCon;
         private readonly ListCollectionView view;
         private readonly ObservableCollection<RosterItem> rosterItems;
-        private readonly Dictionary<string, string> presenceMap;
+        private readonly Dictionary<string, Presence> presenceMap;
         private readonly Dictionary<string, MessageWindow> chatFormMap;
         private const string DefaultGroupName = "Other friends";
 
@@ -41,26 +42,70 @@ namespace NJabber
             InitializeComponent();
             rosterItems = new ObservableCollection<RosterItem>();
             view = new ListCollectionView(rosterItems);
-            presenceMap = new Dictionary<string, string>();
+            presenceMap = new Dictionary<string, Presence>();
             chatFormMap = new Dictionary<string, MessageWindow>();
 
             listbox.ItemsSource = view;
 
 
-            xmppCon = new XmppClientConnection("chat.facebook.com")
-                         {
-                             SocketConnectionType = SocketConnectionType.Direct
-                         };
+            xmppCon = new XmppClientConnection
+                          {
+                              SocketConnectionType = SocketConnectionType.Direct,
+                              Server = "127.0.0.1",
+                              Username = "bedanand",
+                              Password = "sharma",
+                              Priority = 10,
+                              
+                          };
+
+            xmppCon.OnReadXml += new XmlHandler(xmppCon_OnReadXml);
+            xmppCon.OnSocketError += xmppCon_OnSocketError;
             xmppCon.OnLogin += xmppCon_OnLogin;
             xmppCon.OnError += xmppCon_OnError;
             xmppCon.OnRosterStart += XmppConOnRosterStart;
             xmppCon.OnRosterItem += XmppConOnRosterItem;
             xmppCon.OnRosterEnd += XmppConOnRosterEnd;
-
+            xmppCon.OnStreamError += xmppCon_OnStreamError;
+            xmppCon.OnAuthError += xmppCon_OnAuthError;
+            xmppCon.OnXmppConnectionStateChanged += xmppCon_OnXmppConnectionStateChanged;
             xmppCon.OnPresence += XmppConOnPresence;
             xmppCon.OnMessage += XmppConOnMessage;
-            xmppCon.Open("bedanand", Hidden.GetPassword());
+            xmppCon.Open();
 
+        }
+
+        void xmppCon_OnReadXml(object sender, string xml)
+        {
+
+            if (!Dispatcher.CheckAccess())
+            {
+                Dispatcher.BeginInvoke(new MethodInvoker(() => xmppCon_OnReadXml(sender, xml)));
+                return;
+            }
+            debug.Text += xml + "\n\r";
+
+        }
+
+       
+
+        void xmppCon_OnXmppConnectionStateChanged(object sender, XmppConnectionState state)
+        {
+            
+        }
+
+        void xmppCon_OnAuthError(object sender, agsXMPP.Xml.Dom.Element e)
+        {
+            MessageBox.Show("login failed");
+        }
+
+        void xmppCon_OnStreamError(object sender, agsXMPP.Xml.Dom.Element e)
+        {
+            MessageBox.Show("Stream error");
+        }
+
+        void xmppCon_OnSocketError(object sender, Exception ex)
+        {
+            MessageBox.Show(ex.Message);
         }
 
         void xmppCon_OnError(object sender, Exception ex)
@@ -76,14 +121,14 @@ namespace NJabber
                 return;
             }
             MessageWindow messageWindow;
-            if (chatFormMap.ContainsKey(msg.From.ToString()))
+            if (chatFormMap.ContainsKey(msg.From.User))
             {
-                messageWindow = chatFormMap[msg.From.ToString()];
+                messageWindow = chatFormMap[msg.From.User];
             }
             else
             {
                 messageWindow = new MessageWindow(xmppCon, msg.From, msg.To);
-                chatFormMap.Add(msg.From.ToString(), messageWindow);
+                chatFormMap.Add(msg.From.User, messageWindow);
             }
             messageWindow.Show();
             messageWindow.AddMessage(msg);
@@ -91,20 +136,22 @@ namespace NJabber
 
         void XmppConOnPresence(object sender, agsXMPP.protocol.client.Presence pres)
         {
-            if (!presenceMap.ContainsKey(pres.From.ToString()))
+            if (!presenceMap.ContainsKey(pres.From.User))
             {
-                presenceMap.Add(pres.From.ToString(), pres.Show.ToString());
+                presenceMap.Add(pres.From.User, pres);
             }
             else
             {
-                presenceMap[pres.From.ToString()] = pres.Show.ToString();
+                presenceMap[pres.From.User] = pres;
             }
-            int i = rosterItems.IndexOf(new RosterItem() { JId = pres.From.ToString() });
+            int i = rosterItems.IndexOf(new RosterItem() { UserName = pres.From.User });
             if (i >= 0)
             {
 
-
-                rosterItems[i].Presence = pres.Show.ToString();
+                
+                rosterItems[i].PreShow = pres.Show.ToString();
+                rosterItems[i].PreType = pres.Type.ToString();
+                rosterItems[i].PreStatus = pres.Status;
 
             }
             if (!Dispatcher.CheckAccess())
@@ -154,11 +201,15 @@ namespace NJabber
             {
                 groupname = DefaultGroupName;
             }
-            var rosterItem = new RosterItem() { JId = item.Jid.ToString(), Name = nodeText, GroupName = groupname };
+            var rosterItem = new RosterItem() { UserName = item.Jid.User, Name = nodeText, GroupName = groupname };
 
-            if (presenceMap.ContainsKey(item.Jid.ToString()))
+            
+            if (presenceMap.ContainsKey(item.Jid.User))
             {
-                rosterItem.Presence = presenceMap[item.Jid.ToString()];
+                var pre = presenceMap[item.Jid.User];
+                rosterItem.PreShow = pre.Show.ToString();
+                rosterItem.PreType = pre.Type.ToString();
+                rosterItem.PreStatus = pre.Status;
             }
             rosterItems.Add(rosterItem);
 
@@ -181,9 +232,6 @@ namespace NJabber
 
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
 }
