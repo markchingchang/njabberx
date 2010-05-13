@@ -14,19 +14,50 @@ namespace NJabber.model.roster
             
         }
 
-        public string JId { get; set; }
+        public string UserName { get; set; }
         public string Name { get; set; }
         public string NickName { get; set; }
         public string GroupName { get; set; }
-        private string presence;
-        public string Presence
+        private string preShow;
+        public string PreShow
         {
-            get { return presence; }
-            set { presence = value;
-                InvokePropertyChanged("Presence");
-                InvokePropertyChanged("IsOnline");
-                InvokePropertyChanged("Online");
+            get { return preShow; }
+            set
+            {
+                preShow = value;
+                InvokePropertyChanged("PreShow");
                 InvokePropertyChanged("StatusBrush");
+                InvokePropertyChanged("DisplayStatus");
+            }
+        }
+
+        private string preStatus;
+
+        public string PreStatus
+        {
+            get { return preStatus; }
+            set { preStatus = value;
+            InvokePropertyChanged("PreStatus");
+            InvokePropertyChanged("DisplayStatus");
+            }
+        }
+        public string DisplayStatus
+        {
+            get
+            {
+                return preShow + " " + preStatus;
+            }
+        }
+
+        private string preType;
+
+        public string PreType
+        {
+            get { return preType; }
+            set { preType = value;
+                InvokePropertyChanged("IsOnline");
+                InvokePropertyChanged("StatusBrush");
+                InvokePropertyChanged("DisplayStatus");
             }
         }
 
@@ -34,19 +65,19 @@ namespace NJabber.model.roster
         {
             get
             {
-                return presence != null;
+                return PreType == "available";
             }
         }
       
         public override int GetHashCode()
         {
-            return JId.GetHashCode();
+            return UserName.GetHashCode();
         }
         public override bool Equals(object obj)
         {
             var objItem = obj as RosterItem;
             if(objItem== null) return false;
-            return JId.Equals(objItem.JId);
+            return UserName.Equals(objItem.UserName);
         }
         public Brush StatusBrush
         {
