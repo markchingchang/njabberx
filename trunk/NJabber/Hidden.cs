@@ -9,7 +9,7 @@ namespace NJabber
     {
        public static string GetPassword()
        {
-           return "sharma";
+           return "Sharma123*";
        }
     }
 }
