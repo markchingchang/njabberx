@@ -1,0 +1,413 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/f:XmppClientConnection.cs" caret="45649" fromTop="3" />
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/f:crypto.xml" caret="455585" fromTop="19" />
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/f:XmppConnection.cs" caret="9571" fromTop="246" />
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/d:protocol/d:client/f:Presence.cs" caret="4158" fromTop="21" />
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/d:protocol/d:client/f:ShowType.cs" caret="2066" fromTop="34" />
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/d:protocol/d:iq/d:vcard/f:Photo.cs" caret="2559" fromTop="87" />
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/d:protocol/d:Base/f:Avatar.cs" caret="1330" fromTop="3" />
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/d:protocol/d:iq/d:avatar/f:Avatar.cs" caret="1497" fromTop="15" />
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/f:Uri.cs" caret="0" fromTop="0" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:AuthoringTests.txt" caret="0" fromTop="0" />
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/d:Xml/d:Dom/f:Element.cs" caret="27978" fromTop="10" />
+      <File id="46F76AAB-F720-441D-93D5-738DE2E6EB57/d:util/f:Hash.cs" caret="2231" fromTop="29" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/f:Util.cs" caret="1806" fromTop="35" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:model/d:roster/f:ImageCacheProvider.cs" caret="0" fromTop="0" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:model/d:roster/f:RosterItem.cs" caret="606" fromTop="5" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="2134" fromTop="44" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:uitl/f:PresenceUtil.cs" caret="867" fromTop="15" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MessageWindow.xaml.cs" caret="665" fromTop="8" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="3587" fromTop="25" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/f:Util.cs" caret="1807" fromTop="35" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:model/d:roster/f:ImageCacheProvider.cs" caret="658" fromTop="16" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:model/d:roster/f:RosterItem.cs" caret="576" fromTop="13" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="7021" fromTop="18" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="1147" fromTop="20" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="1762" fromTop="10" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="1543" fromTop="9" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="1219" fromTop="20" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="2076" fromTop="16" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="2482" fromTop="37" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="2280" fromTop="26" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="2405" fromTop="19" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="2114" fromTop="18" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:uitl/f:PresenceUtil.cs" caret="665" fromTop="19" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:uitl/f:PresenceUtil.cs" caret="867" fromTop="24" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="2119" fromTop="11" />
+      <File id="864359A9-591D-4485-A96A-F9E28C54B917/f:UnitTest1.cs" caret="2307" fromTop="17" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:uitl/f:PresenceUtil.cs" caret="1326" fromTop="30" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:uitl/f:PresenceUtil.cs" caret="1248" fromTop="28" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="6828" fromTop="7" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="6690" fromTop="10" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="7425" fromTop="15" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="7521" fromTop="21" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="7590" fromTop="20" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="8081" fromTop="12" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="1835" fromTop="10" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="3636" fromTop="24" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="3058" fromTop="13" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="2922" fromTop="9" />
+      <File id="7F956927-61EC-4CC2-BAF6-DFE9A69C3295/d:view/f:MainWindow.xaml.cs" caret="3332" fromTop="20" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerMSTest>
+    <UseTestRunConfigFromMetadataFile>False</UseTestRunConfigFromMetadataFile>
+  </UnitTestRunnerMSTest>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:@agsXMPP.net.SocketConnectionType">
+      <Item value="Bosh" priority="2" />
+      <Item value="HttpPolling" priority="0" />
+      <Item value="Direct" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Default">
+      <Item value="xmppCon" priority="16" />
+      <Item value="MessageBox" priority="7" />
+      <Item value="ex" priority="5" />
+      <Item value="throw" priority="2" />
+      <Item value="Jid" priority="2" />
+      <Item value="new" priority="20" />
+      <Item value="Username" priority="0" />
+      <Item value="Password" priority="0" />
+      <Item value="Hidden" priority="3" />
+      <Item value="false" priority="1" />
+      <Item value="ConnectServer" priority="1" />
+      <Item value="SocketConnectionType" priority="1" />
+      <Item value="XmppConnectionState" priority="0" />
+      <Item value="Server" priority="0" />
+      <Item value="Priority" priority="0" />
+      <Item value="e" priority="1" />
+      <Item value="state" priority="0" />
+      <Item value="UserName" priority="3" />
+      <Item value="string" priority="27" />
+      <Item value="PreType" priority="0" />
+      <Item value="rosterItems" priority="5" />
+      <Item value="pres" priority="21" />
+      <Item value="var" priority="4" />
+      <Item value="presenceMap" priority="0" />
+      <Item value="item" priority="1" />
+      <Item value="rosterItem" priority="2" />
+      <Item value="pre" priority="2" />
+      <Item value="return" priority="21" />
+      <Item value="preStatus" priority="1" />
+      <Item value="preShow" priority="1" />
+      <Item value="xml" priority="1" />
+      <Item value="debug" priority="0" />
+      <Item value="Char" priority="0" />
+      <Item value="ShowTypeProvider" priority="3" />
+      <Item value="private" priority="14" />
+      <Item value="const" priority="9" />
+      <Item value="Dictionary" priority="0" />
+      <Item value="Dictionary&lt;string,string&gt;" priority="0" />
+      <Item value="data" priority="5" />
+      <Item value="None" priority="0" />
+      <Item value="Properties" priority="3" />
+      <Item value="Resources" priority="3" />
+      <Item value="Away" priority="0" />
+      <Item value="Dnd" priority="0" />
+      <Item value="Xa" priority="0" />
+      <Item value="void" priority="6" />
+      <Item value="if" priority="18" />
+      <Item value="null" priority="9" />
+      <Item value="public" priority="14" />
+      <Item value="static" priority="7" />
+      <Item value="Brushes" priority="5" />
+      <Item value="else" priority="5" />
+      <Item value="switch" priority="0" />
+      <Item value="case" priority="3" />
+      <Item value="PreShow" priority="1" />
+      <Item value="break" priority="3" />
+      <Item value="ShowType" priority="2" />
+      <Item value="Brush" priority="0" />
+      <Item value="default" priority="0" />
+      <Item value="view" priority="1" />
+      <Item value="SortDescription" priority="0" />
+      <Item value="PropertyName" priority="0" />
+      <Item value="Direction" priority="0" />
+      <Item value="ListSortDirection" priority="0" />
+      <Item value="IsOnline" priority="0" />
+      <Item value="iq" priority="21" />
+      <Item value="Avatar" priority="7" />
+      <Item value="avatar" priority="6" />
+      <Item value="IqCB" priority="0" />
+      <Item value="IqType" priority="2" />
+      <Item value="image" priority="8" />
+      <Item value="Image" priority="2" />
+      <Item value="String" priority="0" />
+      <Item value="ImageList" priority="1" />
+      <Item value="GetRoster" priority="1" />
+      <Item value="roster" priority="1" />
+      <Item value="IQ" priority="2" />
+      <Item value="requestAvatar" priority="1" />
+      <Item value="Element" priority="2" />
+      <Item value="protocol" priority="3" />
+      <Item value="client" priority="1" />
+      <Item value="agsXMPP" priority="1" />
+      <Item value="avt" priority="1" />
+      <Item value="Stream" priority="0" />
+      <Item value="streamReader" priority="0" />
+      <Item value="StreamReader" priority="0" />
+      <Item value="MemoryStream" priority="0" />
+      <Item value="Util" priority="2" />
+      <Item value="hash" priority="3" />
+      <Item value="filepath" priority="2" />
+      <Item value="ImageWHash" priority="1" />
+      <Item value="NewsStyleUriParser" priority="0" />
+      <Item value="byte" priority="0" />
+      <Item value="bytes" priority="1" />
+      <Item value="ms" priority="0" />
+      <Item value="imageBytes" priority="0" />
+      <Item value="Hash" priority="0" />
+      <Item value="Presence" priority="4" />
+      <Item value="true" priority="3" />
+      <Item value="PresenceUtil" priority="10" />
+      <Item value="presence" priority="10" />
+      <Item value="Assert" priority="4" />
+      <Item value="node" priority="0" />
+      <Item value="hashNode" priority="1" />
+      <Item value="i" priority="1" />
+      <Item value="SetPresence" priority="1" />
+      <Item value="text" priority="0" />
+      <Item value="maps" priority="2" />
+      <Item value="reader" priority="0" />
+      <Item value="writer" priority="1" />
+      <Item value="path" priority="1" />
+      <Item value="ImageCacheProvider" priority="1" />
+      <Item value="imagepath" priority="0" />
+      <Item value="HashSet" priority="0" />
+      <Item value="Node" priority="0" />
+      <Item value="bool" priority="1" />
+      <Item value="TestMethod" priority="0" />
+      <Item value="AvatarPres1" priority="3" />
+      <Item value="AvatarHash1" priority="0" />
+      <Item value="GetPresence" priority="3" />
+      <Item value="VCardPres1" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.XmppClientConnection">
+      <Item value="OnRegisterError" priority="0" />
+      <Item value="OnSocketError" priority="0" />
+      <Item value="Resource" priority="0" />
+      <Item value="Server" priority="0" />
+      <Item value="Port" priority="0" />
+      <Item value="OnStreamError" priority="0" />
+      <Item value="OnAuthError" priority="0" />
+      <Item value="OnXmppConnectionStateChanged" priority="0" />
+      <Item value="RequestAgents" priority="0" />
+      <Item value="OnReadSocketData" priority="0" />
+      <Item value="OnReadXml" priority="0" />
+      <Item value="RosterManager" priority="0" />
+      <Item value="OnIq" priority="0" />
+      <Item value="Send" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.MessageBox">
+      <Item value="Show" priority="7" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="Message" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NJabber.Hidden">
+      <Item value="GetPassword" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.XmppConnectionState">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.Jid">
+      <Item value="User" priority="11" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NJabber.model.roster.RosterItem">
+      <Item value="UserName" priority="0" />
+      <Item value="PreShow" priority="1" />
+      <Item value="PreType" priority="1" />
+      <Item value="PreStatus" priority="1" />
+      <Item value="ImageSource" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.protocol.client.Presence">
+      <Item value="Type" priority="2" />
+      <Item value="Status" priority="2" />
+      <Item value="Show" priority="0" />
+      <Item value="XDelay" priority="1" />
+      <Item value="Nickname" priority="0" />
+      <Item value="GetTag" priority="0" />
+      <Item value="Value" priority="0" />
+      <Item value="InnerXml" priority="1" />
+      <Item value="To" priority="0" />
+      <Item value="From" priority="0" />
+      <Item value="FirstNode" priority="0" />
+      <Item value="FirstChild" priority="4" />
+      <Item value="HasChildElements" priority="2" />
+      <Item value="ChildNodes" priority="0" />
+      <Item value="SelectElements" priority="0" />
+      <Item value="SelectSingleElement" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.protocol.client.PresenceType">
+      <Item value="ToString" priority="1" />
+      <Item value="toar" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="ToString" priority="0" />
+      <Item value="Split" priority="0" />
+      <Item value="ToCharArray" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.protocol.iq.roster.RosterItem">
+      <Item value="Jid" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.protocol.client.ShowType">
+      <Item value="ToString" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.TextBox">
+      <Item value="Text" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2">
+      <Item value="Add" priority="2" />
+      <Item value="ContainsKey" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NGrabber.Properties.Resources">
+      <Item value="NONE" priority="0" />
+      <Item value="away" priority="0" />
+      <Item value="dnd" priority="0" />
+      <Item value="xa" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NJabber.model.roster.ShowTypeProvider">
+      <Item value="Instance" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NJabber.model.roster.ShowTypeProvider">
+      <Item value="Get" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Media.Brushes">
+      <Item value="GreenYellow" priority="2" />
+      <Item value="Gray" priority="0" />
+      <Item value="Red" priority="0" />
+      <Item value="Orange" priority="1" />
+      <Item value="Yellow" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@agsXMPP.protocol.client.ShowType">
+      <Item value="NONE" priority="0" />
+      <Item value="dnd" priority="0" />
+      <Item value="away" priority="1" />
+      <Item value="xa" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="IsNullOrEmpty" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Data.ListCollectionView">
+      <Item value="SortDescriptions" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.ComponentModel.SortDescriptionCollection">
+      <Item value="Add" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.ComponentModel.ListSortDirection">
+      <Item value="Ascending" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.protocol.client.IQ">
+      <Item value="Vcard" priority="6" />
+      <Item value="Type" priority="1" />
+      <Item value="Id" priority="1" />
+      <Item value="To" priority="0" />
+      <Item value="From" priority="1" />
+      <Item value="Query" priority="9" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.protocol.iq.vcard.Vcard">
+      <Item value="Photo" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@agsXMPP.protocol.client.IqType">
+      <Item value="get" priority="1" />
+      <Item value="result" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.Image">
+      <Item value="ImageSource" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Image">
+      <Item value="FromFile" priority="0" />
+      <Item value="Save" priority="1" />
+      <Item value="GetHashCode" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.ObjectModel.ObservableCollection`1">
+      <Item value="Indexer" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.protocol.iq.vcard.Photo">
+      <Item value="Image" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.Xml.Dom.Element">
+      <Item value="Namespace" priority="5" />
+      <Item value="SetTag" priority="0" />
+      <Item value="GetTag" priority="1" />
+      <Item value="InnerXml" priority="3" />
+      <Item value="FirstNode" priority="2" />
+      <Item value="ChildNodes" priority="0" />
+      <Item value="ToString" priority="0" />
+      <Item value="FirstChild" priority="0" />
+      <Item value="SelectSingleElement" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Void">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.protocol.Base.Avatar">
+      <Item value="Data" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.protocol.iq.avatar.Avatar">
+      <Item value="InnerXml" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.Xml.Dom.Node">
+      <Item value="Value" priority="1" />
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.Image">
+      <Item value="FromStream" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NJabber.Util">
+      <Item value="Base64ToImage" priority="0" />
+      <Item value="GetAppPath" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NJabber.model.roster.ImageWHash">
+      <Item value="Image" priority="0" />
+      <Item value="Hash" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:agsXMPP.Xml.Dom.NodeList">
+      <Item value="Item" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.VisualStudio.TestTools.UnitTesting.Assert">
+      <Item value="AreEqual" priority="0" />
+      <Item value="IsTrue" priority="1" />
+      <Item value="IsFalse" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NJabber.uitl.PresenceUtil">
+      <Item value="GetAvatarHash" priority="1" />
+      <Item value="IsVCard" priority="1" />
+      <Item value="IsAvatar" priority="3" />
+      <Item value="GetVCardHash" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.StreamWriter">
+      <Item value="WriteLine" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IDictionary`2">
+      <Item value="Add" priority="0" />
+      <Item value="ContainsKey" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NJabber.model.roster.ImageCacheProvider">
+      <Item value="Instance" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NJabber.model.roster.ImageCacheProvider">
+      <Item value="GetImagePath" priority="0" />
+      <Item value="Add" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

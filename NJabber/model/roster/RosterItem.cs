@@ -1,25 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Media;
+using agsXMPP.protocol.client;
+using Brush = System.Windows.Media.Brush;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace NJabber.model.roster
 {
-    public class RosterItem:INotifyPropertyChanged
+    public class RosterItem : INotifyPropertyChanged
     {
         public RosterItem()
         {
-            
+            image = "avatar.jpg";
+        }
+
+        private String image;
+        public String ImageSource
+        {
+            get { return Util.GetAppPath() + "\\" +  image; }
+            set
+            {
+                image = value;
+                InvokePropertyChanged("ImageSource");
+            }
         }
 
         public string UserName { get; set; }
         public string Name { get; set; }
         public string NickName { get; set; }
         public string GroupName { get; set; }
-        private string preShow;
-        public string PreShow
+        private ShowType preShow;
+        public ShowType PreShow
         {
             get { return preShow; }
             set
@@ -36,16 +50,19 @@ namespace NJabber.model.roster
         public string PreStatus
         {
             get { return preStatus; }
-            set { preStatus = value;
-            InvokePropertyChanged("PreStatus");
-            InvokePropertyChanged("DisplayStatus");
+            set
+            {
+                preStatus = value;
+                InvokePropertyChanged("PreStatus");
+                InvokePropertyChanged("DisplayStatus");
             }
         }
         public string DisplayStatus
         {
             get
             {
-                return preShow + " " + preStatus;
+                if (IsOnline) return ShowTypeProvider.Instance.Get(preShow.ToString()) + (!string.IsNullOrEmpty(preStatus) ? " - " + preStatus : null);
+                return null;
             }
         }
 
@@ -54,7 +71,9 @@ namespace NJabber.model.roster
         public string PreType
         {
             get { return preType; }
-            set { preType = value;
+            set
+            {
+                preType = value;
                 InvokePropertyChanged("IsOnline");
                 InvokePropertyChanged("StatusBrush");
                 InvokePropertyChanged("DisplayStatus");
@@ -68,7 +87,7 @@ namespace NJabber.model.roster
                 return PreType == "available";
             }
         }
-      
+
         public override int GetHashCode()
         {
             return UserName.GetHashCode();
@@ -76,13 +95,31 @@ namespace NJabber.model.roster
         public override bool Equals(object obj)
         {
             var objItem = obj as RosterItem;
-            if(objItem== null) return false;
+            if (objItem == null) return false;
             return UserName.Equals(objItem.UserName);
         }
         public Brush StatusBrush
         {
-            get {
-                return IsOnline ? Brushes.Green : Brushes.Gray;
+            get
+            {
+                if (IsOnline)
+                {
+                    switch (PreShow)
+                    {
+                        case ShowType.NONE:
+                            return Brushes.GreenYellow;
+                        case ShowType.dnd:
+                            return Brushes.Red;
+                        case ShowType.away:
+                            return Brushes.Yellow;
+                        case ShowType.xa:
+                            return Brushes.Yellow;
+                        default:
+                            return Brushes.GreenYellow;
+
+                    }
+                }
+                return Brushes.Gray;
             }
         }
 
@@ -91,7 +128,7 @@ namespace NJabber.model.roster
         private void InvokePropertyChanged(String name)
         {
             PropertyChangedEventHandler changed = PropertyChanged;
-            if (changed != null) changed(this,new PropertyChangedEventArgs(name));
+            if (changed != null) changed(this, new PropertyChangedEventArgs(name));
         }
     }
 }
