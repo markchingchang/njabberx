@@ -6,8 +6,8 @@
 		<GradientStop Color="#FFAAE473" Offset="1"/>
 	</LinearGradientBrush>
 	<LinearGradientBrush x:Key="statusDisk" EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
-		<GradientStop Color="#4CFFFFFF" Offset="0.934"/>
-		<GradientStop Color="#7F474646" Offset="0.46"/>
+		<GradientStop Color="#4CDAD8D8" Offset="0.681"/>
+		<GradientStop Color="#7F454545" Offset="0.47"/>
 	</LinearGradientBrush>
 	<!-- Resource dictionary entries should be defined here. -->
 </ResourceDictionary>

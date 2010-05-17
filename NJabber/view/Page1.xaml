@@ -10,6 +10,6 @@
 
 	<Grid x:Name="LayoutRoot">
 		<Ellipse HorizontalAlignment="Left" Margin="100,100,0,0" Width="100" Fill="#FF45980F" VerticalAlignment="Top" Height="100"/>
-		<Ellipse HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" Width="100" Height="100" Fill="{DynamicResource statusDisk}"/>
+		<Ellipse HorizontalAlignment="Left" Margin="100,100,0,0" VerticalAlignment="Top" Width="100" Height="100" Fill="{DynamicResource statusDisk}" Stroke="#77000000" StrokeThickness="5"/>
 	</Grid>
 </Page>
