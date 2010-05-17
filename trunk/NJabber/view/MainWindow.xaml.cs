@@ -48,9 +48,9 @@ namespace NJabber
             xmppCon = new XmppClientConnection
                           {
                               SocketConnectionType = SocketConnectionType.Direct,
-                              Server = "chat.facebook.com",
+                              Server = "127.0.0.1",
                               Username = "bedanand",
-                              Password = Hidden.GetPassword(),
+                              Password = "sharma",
                               Priority = 10,
 
                           };

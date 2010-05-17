@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NJabber.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Emotions" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">:) happy
+:( sad
+;) winking
+:D big grin
+;;) batting eyelashes
+&gt;:D&lt; big hug
+:-/ confused
+:x love struck
+:"&gt; blushing
+:P tongue
+:-* kiss
+=(( broken heart
+:-O surprise
+X( angry
+:&gt; smug
+B-) cool
+:-S worried
+#:-S whew
+&gt;:) devil
+:(( crying
+:)) laughing
+:| straight face
+/:) raised eyebrows
+=)) rolling on the floor
+O:-) angel
+:-B nerd
+=; talk to the hand
+:-c call me
+:)] on the phone
+~X( at wits' end
+:-h wave</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

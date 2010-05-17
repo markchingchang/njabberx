@@ -34,8 +34,8 @@
                                 <Ellipse Width="15" Fill="{DynamicResource statusDisk}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="15" StrokeThickness="2">
                                 	<Ellipse.Stroke>
                                 		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                			<GradientStop Color="#B6C3C3C3" Offset="0"/>
-                                			<GradientStop Color="#87FFFFFF" Offset="1"/>
+                                			<GradientStop Color="#834B4B4B" Offset="0"/>
+                                			<GradientStop Color="#64B1B1B1" Offset="1"/>
                                 		</LinearGradientBrush>
                                 	</Ellipse.Stroke>
                                 </Ellipse>
