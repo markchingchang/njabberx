@@ -8,6 +8,7 @@
     		<ResourceDictionary.MergedDictionaries>
     			<ResourceDictionary Source="view/listbox.xaml"/>
     			<ResourceDictionary Source="view/Brushes.xaml"/>
+    			<ResourceDictionary Source="view/progressbar.xaml"/>
     		</ResourceDictionary.MergedDictionaries>
     	</ResourceDictionary>
          
