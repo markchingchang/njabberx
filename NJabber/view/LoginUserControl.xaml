@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="NJabber.view.LoginUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <Grid Height="299">
+        <Label Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" Name="label1" VerticalAlignment="Top" Width="120">User name:</Label>
+      
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,15,22,0" Name="userNameTextbox" VerticalAlignment="Top" Width="120" />
+        <Label HorizontalAlignment="Left" Margin="12,44,0,0" Name="label2" Width="120" Height="28" VerticalAlignment="Top">Password</Label>
+        <PasswordBox Height="23" HorizontalAlignment="Right" Margin="0,49,22,0" Name="passwordBox" VerticalAlignment="Top" Width="120" />
+        <Button HorizontalAlignment="Right" Margin="0,147,22,130" Name="loginButton" Click="loginButton_Click" Width="75">Sign in</Button>
+    </Grid>
+</UserControl>

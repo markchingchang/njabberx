@@ -3,55 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Window1" Height="600" Width="350">
     <Window.Resources>
-        <Style x:Key="ContainerStyle" TargetType="{x:Type GroupItem}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Expander Header="{Binding Name}" IsExpanded="True">
-                            <ItemsPresenter />
-                        </Expander>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+       
 
     </Window.Resources>
-    <Grid>
-        <TabControl>
-            
-            <TabItem>
-                <TabItem.Header>Buddies</TabItem.Header>
-                <ListBox x:Name="listbox" Style="{DynamicResource rosterlist}" ItemContainerStyle="{DynamicResource rosterliststyle}">
-                    <ListBox.GroupStyle>
-                        <GroupStyle  ContainerStyle="{StaticResource ContainerStyle}">
-                        </GroupStyle>
-                    </ListBox.GroupStyle>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Height="30" Width="300" >
-                                <Ellipse  Stroke="{x:Null}" Width="15" Fill="{Binding Path=StatusBrush}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="15">
-                                </Ellipse>
-                                <Ellipse Width="15" Fill="{DynamicResource statusDisk}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="15" StrokeThickness="2">
-                                	<Ellipse.Stroke>
-                                		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                			<GradientStop Color="#834B4B4B" Offset="0"/>
-                                			<GradientStop Color="#64B1B1B1" Offset="1"/>
-                                		</LinearGradientBrush>
-                                	</Ellipse.Stroke>
-                                </Ellipse>
-                                <TextBlock Text="{Binding Name}" Margin="50,0,0,0" VerticalAlignment="Top" />
-                                <TextBlock Text="{Binding DisplayStatus}" Margin="50,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
-                                <Image Source="{Binding ImageSource}" HorizontalAlignment="Right" />
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </TabItem>
-            <TabItem>
-                <TabItem.Header>Debug</TabItem.Header>
-                <TextBox x:Name="debug" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" />
-            </TabItem>
-        </TabControl>
+    <Grid x:Name="mainGrid">
+       
         
     </Grid>
 </Window>

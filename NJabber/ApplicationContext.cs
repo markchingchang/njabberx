@@ -5,11 +5,8 @@ using System.Text;
 
 namespace NJabber
 {
-   public class Hidden
+    public class ApplicationContext
     {
-       public static string GetPassword()
-       {
-           return "Sharma123*";
-       }
+        public static bool IsLoggedIn { get; set; }
     }
 }

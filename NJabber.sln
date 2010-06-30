@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		NJabber.vsmdi = NJabber.vsmdi
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCWork", "MVCWork\MVCWork.csproj", "{61606670-C06C-45EE-AD17-B99F8FC76A28}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = NJabber.vsmdi
@@ -34,6 +36,10 @@ Global
 		{864359A9-591D-4485-A96A-F9E28C54B917}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{864359A9-591D-4485-A96A-F9E28C54B917}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{864359A9-591D-4485-A96A-F9E28C54B917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61606670-C06C-45EE-AD17-B99F8FC76A28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61606670-C06C-45EE-AD17-B99F8FC76A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61606670-C06C-45EE-AD17-B99F8FC76A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61606670-C06C-45EE-AD17-B99F8FC76A28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
