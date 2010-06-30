@@ -1,9 +1,31 @@
 ﻿<Window x:Class="NJabber.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Window1" Height="600" Width="350">
+    xmlns:shell="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell"
+    Title="Window1" Height="600" Width="400" Icon="/NJabber;component/app.ico">
+    <shell:TaskbarItemInfo.TaskbarItemInfo>
+        <shell:TaskbarItemInfo x:Name="taskBarItemInfo1" />
+    </shell:TaskbarItemInfo.TaskbarItemInfo>
     <Window.Resources>
-       
+        <DataTemplate x:Key="OverlayIcon">
+            <Grid Width="40" Height="40">
+                <Ellipse Fill="White"
+                        Stroke="Red"
+                        StrokeThickness="2"/>
+
+                <TextBlock Text="{Binding}"
+                        TextAlignment="Center"
+                        Foreground="Red"
+                        FontWeight="Normal"
+                        Height="32"
+                        VerticalAlignment="Center"
+                        FontSize="24">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" />
+                </TextBlock.Effect>
+                </TextBlock>
+            </Grid>
+        </DataTemplate>
 
     </Window.Resources>
     <Grid x:Name="mainGrid">

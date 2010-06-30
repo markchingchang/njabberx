@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Forms;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using agsXMPP;
 using agsXMPP.net;
 using agsXMPP.protocol.Base;
@@ -47,14 +50,29 @@ namespace NJabber
             chatFormMap = new Dictionary<string, MessageWindow>();
             SetControl(LoginControl);
 
+
+            int iconWidth = 40;
+            int iconHeight = 40;
+            string countText = "5";
+            var bmp =
+                new RenderTargetBitmap(iconWidth, iconHeight, 96, 96, PixelFormats.Default);
+            var root = new ContentControl
+                           {
+                               ContentTemplate = ((DataTemplate) Resources["OverlayIcon"]),
+                               Content = countText
+                           };
+            root.Arrange(new Rect(0, 0, iconWidth, iconHeight));
+            bmp.Render(root);
+            taskBarItemInfo1.Overlay = bmp;
+            
         }
         void SetControl(string control)
         {
             IDisplay userControl;
-            switch ( control)
+            switch (control)
             {
                 case RosterControl:
-                    
+
                     if (!controlsMap.ContainsKey(RosterControl))
                     {
                         userControl = new RosterUserControl();
@@ -65,10 +83,10 @@ namespace NJabber
                         userControl = controlsMap[RosterControl];
                     }
                     userControl.DataContext = view;
-                  
+
                     break;
                 case LoginControl:
-                    
+
                     if (!controlsMap.ContainsKey(LoginControl))
                     {
                         userControl = new LoginUserControl();
@@ -78,7 +96,7 @@ namespace NJabber
                     {
                         userControl = controlsMap[LoginControl];
                     }
-                   
+
                     break;
                 case ProgressBarControl:
 
@@ -389,8 +407,8 @@ namespace NJabber
             switch (notification.Name)
             {
                 case ApplicationNotifications.LoginPressed:
-                    var loginNotification = (LoginNotification) notification.Body;
-                    StartLogin(loginNotification.UserName,loginNotification.Password);
+                    var loginNotification = (LoginNotification)notification.Body;
+                    StartLogin(loginNotification.UserName, loginNotification.Password);
                     break;
                 default:
                     break;
@@ -399,7 +417,7 @@ namespace NJabber
 
         public IList<string> ListNotificationInterests()
         {
-            return new List<string>(){ApplicationNotifications.LoginPressed};
+            return new List<string>() { ApplicationNotifications.LoginPressed };
         }
     }
 }
