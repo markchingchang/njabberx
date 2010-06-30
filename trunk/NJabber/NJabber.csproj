@@ -74,6 +74,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\LoginUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,9 +86,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\Page1.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="view\ProgressUserControl.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\RosterUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -96,14 +104,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationContext.cs" />
+    <Compile Include="ApplicationNotifications.cs" />
     <Compile Include="controls\GifImage.cs" />
-    <Compile Include="Hidden.cs" />
     <Compile Include="model\history\ChatHistoryProvider.cs" />
     <Compile Include="model\roster\EmotionsProvider.cs" />
     <Compile Include="model\roster\ImageCacheProvider.cs" />
     <Compile Include="model\roster\ImageWHash.cs" />
     <Compile Include="model\roster\RosterItem.cs" />
     <Compile Include="model\roster\ShowTypeProvider.cs" />
+    <Compile Include="Notifications\LoginNotification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -119,11 +129,18 @@
     </Compile>
     <Compile Include="uitl\PresenceUtil.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="view\IDisplay.cs" />
+    <Compile Include="view\LoginUserControl.xaml.cs">
+      <DependentUpon>LoginUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\MessageWindow.xaml.cs">
       <DependentUpon>MessageWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
+    <Compile Include="view\ProgressUserControl.xaml.cs">
+      <DependentUpon>ProgressUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\RosterUserControl.xaml.cs">
+      <DependentUpon>RosterUserControl.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -241,6 +258,10 @@
     <Resource Include="libs\agsXMPP.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MVCWork\MVCWork.csproj">
+      <Project>{61606670-C06C-45EE-AD17-B99F8FC76A28}</Project>
+      <Name>MVCWork</Name>
+    </ProjectReference>
     <ProjectReference Include="..\xmpplib\xmpplib.csproj">
       <Project>{46F76AAB-F720-441D-93D5-738DE2E6EB57}</Project>
       <Name>xmpplib</Name>

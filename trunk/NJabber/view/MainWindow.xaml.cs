@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Drawing;
-using System.IO;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Forms;
@@ -11,12 +9,13 @@ using agsXMPP.net;
 using agsXMPP.protocol.Base;
 using agsXMPP.protocol.client;
 using agsXMPP.Xml.Dom;
+using MVCWork;
+using NJabber.Notifications;
 using NJabber.uitl;
 using NJabber.view;
 using RosterItem = NJabber.model.roster.RosterItem;
 using System.ComponentModel;
 using MessageBox = System.Windows.MessageBox;
-using Stream=agsXMPP.protocol.Base.Stream;
 using NJabber.model.roster;
 
 namespace NJabber
@@ -24,36 +23,94 @@ namespace NJabber
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IMediator
     {
-        private readonly XmppClientConnection xmppCon;
+        private XmppClientConnection xmppCon;
         private readonly ListCollectionView view;
         private readonly ObservableCollection<RosterItem> rosterItems;
         private readonly Dictionary<string, Presence> presenceMap;
         private readonly Dictionary<string, MessageWindow> chatFormMap;
         private const string DefaultGroupName = "Buddies";
 
+        private readonly IDictionary<string, IDisplay> controlsMap = new Dictionary<string, IDisplay>();
+        private const string LoginControl = "LOGIN";
+        private const string RosterControl = "ROSTER";
+        private const string ProgressBarControl = "PROGRESSBAR";
+
         public MainWindow()
         {
-
+            Facade.Intance.RegisterMediator(this);
             InitializeComponent();
             rosterItems = new ObservableCollection<RosterItem>();
             view = new ListCollectionView(rosterItems);
             presenceMap = new Dictionary<string, Presence>();
             chatFormMap = new Dictionary<string, MessageWindow>();
+            SetControl(LoginControl);
 
-            listbox.ItemsSource = view;
+        }
+        void SetControl(string control)
+        {
+            IDisplay userControl;
+            switch ( control)
+            {
+                case RosterControl:
+                    
+                    if (!controlsMap.ContainsKey(RosterControl))
+                    {
+                        userControl = new RosterUserControl();
+                        controlsMap.Add(RosterControl, userControl);
+                    }
+                    else
+                    {
+                        userControl = controlsMap[RosterControl];
+                    }
+                    userControl.DataContext = view;
+                  
+                    break;
+                case LoginControl:
+                    
+                    if (!controlsMap.ContainsKey(LoginControl))
+                    {
+                        userControl = new LoginUserControl();
+                        controlsMap.Add(LoginControl, userControl);
+                    }
+                    else
+                    {
+                        userControl = controlsMap[LoginControl];
+                    }
+                   
+                    break;
+                case ProgressBarControl:
 
+                    if (!controlsMap.ContainsKey(ProgressBarControl))
+                    {
+                        userControl = new ProgressUserControl();
+                        controlsMap.Add(ProgressBarControl, userControl);
+                    }
+                    else
+                    {
+                        userControl = controlsMap[ProgressBarControl];
+                    }
 
+                    break;
+                default:
+                    userControl = null;
+                    break;
+            }
+            mainGrid.Children.Clear();
+            if (userControl != null) mainGrid.Children.Add((UIElement)userControl);
+        }
+        void StartLogin(string userName, string password)
+        {
+            SetControl(ProgressBarControl);
             xmppCon = new XmppClientConnection
-                          {
-                              SocketConnectionType = SocketConnectionType.Direct,
-                              Server = "127.0.0.1",
-                              Username = "bedanand",
-                              Password = "sharma",
-                              Priority = 10,
-
-                          };
+            {
+                SocketConnectionType = SocketConnectionType.Direct,
+                Server = "chat.facebook.com",
+                Username = userName,
+                Password = password,
+                Priority = 10,
+            };
 
             xmppCon.OnReadXml += XmppConOnReadXml;
             xmppCon.OnSocketError += xmppCon_OnSocketError;
@@ -79,26 +136,26 @@ namespace NJabber
             }
             else if (iq.Type == IqType.result)
             {
-                ImageWHash image=null;
-                if (iq.Query !=null && iq.Query.Namespace == "jabber:iq:avatar")
+                ImageWHash image = null;
+                if (iq.Query != null && iq.Query.Namespace == "jabber:iq:avatar")
                 {
-                   image = Util.Base64ToImage(iq.Query.FirstChild.InnerXml); 
+                    image = Util.Base64ToImage(iq.Query.FirstChild.InnerXml);
                 }
                 else
                 {
                     Element vcard;
-                    if ((vcard = iq.SelectSingleElement("vCard", "vcard-temp"))!=null)
+                    if ((vcard = iq.SelectSingleElement("vCard", "vcard-temp")) != null)
                     {
                         Element photo = vcard.SelectSingleElement("PHOTO");
-                        if(photo!=null)
+                        if (photo != null)
                         {
-                            image = Util.Base64ToImage(photo.SelectSingleElement("BINVAL").InnerXml);        
+                            image = Util.Base64ToImage(photo.SelectSingleElement("BINVAL").InnerXml);
                         }
-                        
+
                     }
-                    
+
                 }
-                if(image== null) return;
+                if (image == null) return;
                 string filepath = "avt" + image.Hash + ".jpg";
                 image.Image.Save(filepath);
                 ImageCacheProvider.Instance.Add(image.Hash, filepath);
@@ -126,7 +183,7 @@ namespace NJabber
                 Dispatcher.BeginInvoke(new MethodInvoker(() => XmppConOnReadXml(sender, xml)));
                 return;
             }
-            debug.Text += xml + "\n\r";
+            //debug.Text += xml + "\n\r";
 
         }
 
@@ -177,7 +234,7 @@ namespace NJabber
             messageWindow.Show();
             messageWindow.AddMessage(msg);
         }
-        
+
         void XmppConOnPresence(object sender, Presence pres)
         {
             if (!presenceMap.ContainsKey(pres.From.User))
@@ -197,7 +254,7 @@ namespace NJabber
             Sort();
 
         }
-        private  void SetPresence(Presence pres)
+        private void SetPresence(Presence pres)
         {
             int i = rosterItems.IndexOf(new RosterItem() { UserName = pres.From.User });
             if (i >= 0)
@@ -207,8 +264,8 @@ namespace NJabber
                 rosterItems[i].PreStatus = pres.Status;
 
             }
-            
-            if(PresenceUtil.IsAvatar(pres))
+
+            if (PresenceUtil.IsAvatar(pres))
             {
                 string hash;
                 if ((hash = PresenceUtil.GetAvatarHash(pres)) != null)
@@ -225,9 +282,9 @@ namespace NJabber
                         xmppCon.Send(requestAvatar);
                     }
                 }
-               
+
             }
-            else if(PresenceUtil.IsVCard(pres))
+            else if (PresenceUtil.IsVCard(pres))
             {
                 string hash;
                 if ((hash = PresenceUtil.GetVCardHash(pres)) != null)
@@ -267,13 +324,14 @@ namespace NJabber
 
             view.GroupDescriptions.Add(new PropertyGroupDescription("GroupName"));
             Sort();
+            SetControl(RosterControl);
         }
 
         void XmppConOnRosterItem(object sender, agsXMPP.protocol.iq.roster.RosterItem item)
         {
-            if (!listbox.Dispatcher.CheckAccess())
+            if (!Dispatcher.CheckAccess())
             {
-                listbox.Dispatcher.BeginInvoke(new MethodInvoker(() => XmppConOnRosterItem(sender, item)));
+                Dispatcher.BeginInvoke(new MethodInvoker(() => XmppConOnRosterItem(sender, item)));
                 return;
             }
 
@@ -291,7 +349,7 @@ namespace NJabber
             var rosterItem = new RosterItem() { UserName = item.Jid.User, Name = nodeText, GroupName = groupname };
 
             rosterItems.Add(rosterItem);
-            
+
             if (presenceMap.ContainsKey(item.Jid.User))
             {
                 var pre = presenceMap[item.Jid.User];
@@ -304,9 +362,9 @@ namespace NJabber
 
         void XmppConOnRosterStart(object sender)
         {
-            if (!listbox.Dispatcher.CheckAccess())
+            if (!Dispatcher.CheckAccess())
             {
-                listbox.Dispatcher.BeginInvoke(new MethodInvoker(() => XmppConOnRosterStart(sender)));
+                Dispatcher.BeginInvoke(new MethodInvoker(() => XmppConOnRosterStart(sender)));
                 return;
             }
             rosterItems.Clear();
@@ -318,5 +376,30 @@ namespace NJabber
         }
 
 
+        string IMediator.Name
+        {
+            get
+            {
+                return "MainWindow";
+            }
+        }
+
+        public void HandleNotification(INotification notification)
+        {
+            switch (notification.Name)
+            {
+                case ApplicationNotifications.LoginPressed:
+                    var loginNotification = (LoginNotification) notification.Body;
+                    StartLogin(loginNotification.UserName,loginNotification.Password);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public IList<string> ListNotificationInterests()
+        {
+            return new List<string>(){ApplicationNotifications.LoginPressed};
+        }
     }
 }
